@@ -2,8 +2,8 @@
 
 namespace App\Helper\File;
 
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class File
 {
@@ -18,7 +18,9 @@ class File
      */
     public static function upload($file, $path): ?string
     {
-        if (is_null($file)) return null;
+        if (is_null($file)) {
+            return null;
+        }
 
         self::validateFile($file);
 
@@ -35,11 +37,13 @@ class File
      */
     public static function uploadWithName($file, $path, ?string $customName = null): ?string
     {
-        if (is_null($file)) return null;
+        if (is_null($file)) {
+            return null;
+        }
 
         self::validateFile($file);
 
-        $fileName = $customName ? self::sanitizeFileName($customName) . '.' . $file->getClientOriginalExtension()
+        $fileName = $customName ? self::sanitizeFileName($customName).'.'.$file->getClientOriginalExtension()
                                 : self::generateFileName($file);
 
         $storedPath = Storage::putFileAs("public/$path", $file, $fileName);
@@ -54,7 +58,9 @@ class File
      */
     public static function uploadBase64Image($imageData, $folder, $model = null): ?string
     {
-        if (is_null($imageData)) return null;
+        if (is_null($imageData)) {
+            return null;
+        }
 
         [$meta, $data] = explode(',', $imageData);
         $imageData = base64_decode($data);
@@ -62,13 +68,13 @@ class File
         $mime = finfo_buffer(finfo_open(), $imageData, FILEINFO_MIME_TYPE);
         $extension = self::getExtensionFromMime($mime);
 
-        $title = $model?->image_caption ?? "image";
+        $title = $model?->image_caption ?? 'image';
         $title = Str::slug($title);
 
-        $filename = $title . "_" . uniqid() . "-" . time() . "." . $extension;
-        $year = date("Y");
-        $month = strtolower(date("F"));
-        $day = date("d");
+        $filename = $title.'_'.uniqid().'-'.time().'.'.$extension;
+        $year = date('Y');
+        $month = strtolower(date('F'));
+        $day = date('d');
 
         $fullPath = "$year/$month/$day/$folder/$filename";
 
@@ -84,7 +90,9 @@ class File
      */
     public static function uploadBase64ImageWithoutTreeDirectory($imageData, $path): ?string
     {
-        if (is_null($imageData)) return null;
+        if (is_null($imageData)) {
+            return null;
+        }
 
         [$meta, $data] = explode(',', $imageData);
         $imageData = base64_decode($data);
@@ -92,7 +100,7 @@ class File
         $mime = finfo_buffer(finfo_open(), $imageData, FILEINFO_MIME_TYPE);
         $extension = self::getExtensionFromMime($mime);
 
-        $filename = time() . uniqid() . '.' . $extension;
+        $filename = time().uniqid().'.'.$extension;
         $fullPath = "$path/$filename";
 
         Storage::disk('public')->put($fullPath, $imageData);
@@ -107,7 +115,9 @@ class File
      */
     public static function deleteFile($file): void
     {
-        if (!$file) return;
+        if (! $file) {
+            return;
+        }
 
         $storagePath = realpath(storage_path());
         $fileRealPath = realpath(base_path($file)) ?: realpath($file);
@@ -122,13 +132,15 @@ class File
      */
     public static function uploadYearMonthWise($file, $folder): ?string
     {
-        if (is_null($file)) return null;
+        if (is_null($file)) {
+            return null;
+        }
 
         self::validateFile($file);
 
-        $year = date("Y");
-        $month = strtolower(date("F"));
-        $day = date("d");
+        $year = date('Y');
+        $month = strtolower(date('F'));
+        $day = date('d');
 
         $path = "$year/$month/$day/$folder";
         $fileName = self::generateFileName($file);
@@ -145,11 +157,13 @@ class File
      */
     public static function uploadDistrictBulkImage($file, $folder, $district, $day): ?string
     {
-        if (is_null($file)) return null;
+        if (is_null($file)) {
+            return null;
+        }
 
         self::validateFile($file);
 
-        $existing = $district->images->first(fn($image) => str_contains(strtolower($image->image), strtolower($day)));
+        $existing = $district->images->first(fn ($image) => str_contains(strtolower($image->image), strtolower($day)));
 
         if ($existing) {
             self::deleteFile($existing->image);
@@ -170,12 +184,12 @@ class File
     private static function validateFile($file): void
     {
         $ext = strtolower($file->getClientOriginalExtension());
-        if (!in_array($ext, self::$allowedExtensions)) {
+        if (! in_array($ext, self::$allowedExtensions)) {
             throw new \Exception("Invalid file type: $ext");
         }
 
         if ($file->getSize() > self::$maxFileSize) {
-            throw new \Exception("File size exceeds limit of 5MB.");
+            throw new \Exception('File size exceeds limit of 5MB.');
         }
     }
 
@@ -188,7 +202,7 @@ class File
         $name = self::sanitizeFileName($name);
         $ext = $file->getClientOriginalExtension();
 
-        return $name . '_' . time() . '_' . uniqid() . '.' . $ext;
+        return $name.'_'.time().'_'.uniqid().'.'.$ext;
     }
 
     /**

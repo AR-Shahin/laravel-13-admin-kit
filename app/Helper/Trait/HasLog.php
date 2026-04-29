@@ -6,14 +6,18 @@ use Illuminate\Support\Facades\Log;
 
 trait HasLog
 {
-    function logInfo($message,$context = []) {
-        Log::info($message,$context);
+    public function logInfo($message, $context = [])
+    {
+        Log::info($message, $context);
     }
 
-    function logError($message,$context = []) {
-        Log::error($message,$context);
+    public function logError($message, $context = [])
+    {
+        Log::error($message, $context);
     }
-    function logWarning($message,$context = []) {
-        Log::warning($message,$context);
+
+    public function logWarning($message, $context = [])
+    {
+        Log::warning($message, $context);
     }
 }

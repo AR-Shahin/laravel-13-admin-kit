@@ -4,9 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Admin;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Spatie\Permission\Models\Role;
 
 class RolePermissionSeeder extends Seeder
 {
@@ -19,11 +18,11 @@ class RolePermissionSeeder extends Seeder
         $view = Role::find(3);
         $ars = Admin::find(3);
         $permissions = Permission::all();
-        $permissionView = Permission::where("name","like","%-view")->get();
-        foreach($permissions as $permission){
+        $permissionView = Permission::where('name', 'like', '%-view')->get();
+        foreach ($permissions as $permission) {
             $role->givePermissionTo($permission);
         }
-        foreach($permissionView as $permission){
+        foreach ($permissionView as $permission) {
             $view->givePermissionTo($permission);
         }
 

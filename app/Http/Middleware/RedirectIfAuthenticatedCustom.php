@@ -11,8 +11,6 @@ class RedirectIfAuthenticatedCustom
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
      * @param  string|null  ...$guards
      * @return mixed
      */
@@ -22,10 +20,10 @@ class RedirectIfAuthenticatedCustom
         foreach ($guards as $guard) {
 
             if (Auth::guard($guard)->check()) {
-               
+
                 // return redirect(RouteServiceProvider::HOME);
-                if ('admin' === $guard) {
-                    return redirect()->route("admin.login");
+                if ($guard === 'admin') {
+                    return redirect()->route('admin.login');
                 }
                 // elseif ('web' === $guard) {
                 //     return redirect(RouteServiceProvider::HOME);

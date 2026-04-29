@@ -2,66 +2,73 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
-    function index()  {
+    public function index()
+    {
 
-        $this->authorize("role-view");
-        $roles = Role::whereGuardName("admin")->get();
-        return view("admin.role.index",compact('roles'));
+        $this->authorize('role-view');
+        $roles = Role::whereGuardName('admin')->get();
+
+        return view('admin.role.index', compact('roles'));
     }
 
-    function storeAndUpdate(Request $request,Role $role)  {
-        $this->authorize("role-create");
-        if(!$role){
+    public function storeAndUpdate(Request $request, Role $role)
+    {
+        $this->authorize('role-create');
+        if (! $role) {
             $request->validate([
-                "name" => ["required","string","unique:roles,name"]
+                'name' => ['required', 'string', 'unique:roles,name'],
             ]);
         }
 
-        $message = "Role Updated!";
-        if(!$role){
-            $role = new Role();
-            $message = "Role Created!";
+        $message = 'Role Updated!';
+        if (! $role) {
+            $role = new Role;
+            $message = 'Role Created!';
         }
         $role->fill([
-            "name" => $request->name,
-            "guard_name" => "admin",
+            'name' => $request->name,
+            'guard_name' => 'admin',
         ]);
 
         $role->save();
         $this->successAlert($message);
-        return redirect()->route("admin.roles.index");
+
+        return redirect()->route('admin.roles.index');
     }
 
-    function delete(Role $role) {
-        $this->authorize("role-delete");
-        $message = "Already Assigned in a Permission!";
-        if(!$role->permissions()->exists()){
+    public function delete(Role $role)
+    {
+        $this->authorize('role-delete');
+        $message = 'Already Assigned in a Permission!';
+        if (! $role->permissions()->exists()) {
             $role->delete();
-            $message = "Role Deleted!";
+            $message = 'Role Deleted!';
             $this->successAlert($message);
-        }else{
+        } else {
             $this->warningAlert($message);
         }
 
         return redirect()->back();
     }
-    function assignPermission(Role $role) {
-        $permissions = Permission::whereGuardName("admin")->orderBy("name")->get();
-        $alreadyGiven = $role->permissions()->pluck("id")->toArray();
+
+    public function assignPermission(Role $role)
+    {
+        $permissions = Permission::whereGuardName('admin')->orderBy('name')->get();
+        $alreadyGiven = $role->permissions()->pluck('id')->toArray();
 
         $permissionArrays = [
             'view' => [],
             'create' => [],
             'edit' => [],
             'delete' => [],
-            'other' => []
+            'other' => [],
         ];
 
         foreach ($permissions as $item) {
@@ -78,23 +85,24 @@ class RoleController extends Controller
 
             $permissionArrays[$permissionType][] = [
                 'id' => $item->id,
-                'name' => ucwords(str_replace("-", " ", $item->name))
+                'name' => ucwords(str_replace('-', ' ', $item->name)),
             ];
         }
 
-        return view("admin.role.assign-permission",compact("permissionArrays","role","alreadyGiven"));
+        return view('admin.role.assign-permission', compact('permissionArrays', 'role', 'alreadyGiven'));
     }
-    function assignPermissionStore(Request $request,Role $role)  {
+
+    public function assignPermissionStore(Request $request, Role $role)
+    {
         $request->validate([
             'permissions' => 'array',
             'permissions.*' => 'exists:permissions,id',
         ]);
 
-
-        $permissions = Permission::whereIn("id",is_null($request->permissions) ? [] : $request->permissions)->get();
+        $permissions = Permission::whereIn('id', is_null($request->permissions) ? [] : $request->permissions)->get();
         $role->syncPermissions($permissions);
-        $this->successAlert("Assigned Permission to this Role.");
+        $this->successAlert('Assigned Permission to this Role.');
+
         return redirect()->back();
     }
-
 }

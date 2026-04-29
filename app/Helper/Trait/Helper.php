@@ -1,8 +1,8 @@
 <?php
 
-
 namespace App\Helper\Trait;
 
-class Helper{
+class Helper
+{
     use HasAlert,HasLog;
 }

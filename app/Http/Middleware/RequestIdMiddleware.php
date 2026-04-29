@@ -12,11 +12,11 @@ class RequestIdMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  Closure(Request): (Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $requestId =  auth()->id() ."_".explode("-", Str::uuid())[0].rand(1,100);
+        $requestId = auth()->id().'_'.explode('-', Str::uuid())[0].rand(1, 100);
         $request->headers->set('X-Request-ID', $requestId);
 
         $response = $next($request);

@@ -12,7 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class Admin extends Authenticatable
 {
-    use HasFactory, Notifiable,HasRoles;
+    use HasFactory, HasRoles,Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -52,6 +52,4 @@ class Admin extends Authenticatable
     {
         $this->notify(new AdminResetPasswordNotification($token));
     }
-
-
 }

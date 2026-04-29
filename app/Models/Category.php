@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Helper\Attribute\StatusAttribute;
 use App\Helper\Mutator\SlugMutator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    use HasFactory,StatusAttribute,SlugMutator;
-    
+    use HasFactory,SlugMutator,StatusAttribute;
+
     protected $guarded = [];
 }

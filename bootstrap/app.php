@@ -1,14 +1,14 @@
 <?php
 
 use App\Http\Middleware\CacheClearMiddleware;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Auth\AuthenticationException;
-
+use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use App\Http\Middleware\RedirectIfAuthenticatedCustom;
-use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
+use Illuminate\Support\Facades\Request;
+use Spatie\Permission\Middleware\PermissionMiddleware;
+use Spatie\Permission\Middleware\RoleMiddleware;
+use Spatie\Permission\Middleware\RoleOrPermissionMiddleware;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -18,16 +18,16 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
-            'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
-            'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
+            'role' => RoleMiddleware::class,
+            'permission' => PermissionMiddleware::class,
+            'role_or_permission' => RoleOrPermissionMiddleware::class,
         ])->append([
-            CacheClearMiddleware::class
+            CacheClearMiddleware::class,
         ]);
 
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        $exceptions->render(function(Request $request, AuthenticationException $exception){
+        $exceptions->render(function (Request $request, AuthenticationException $exception) {
             if (request()->expectsJson()) {
                 return Response()->json(['error' => 'UnAuthorized'], 401);
             }

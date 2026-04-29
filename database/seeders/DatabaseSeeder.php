@@ -23,30 +23,29 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Admin::create([
-            "name" => "Super Admin",
-            "email" => "admin@mail.com",
-            "password" => bcrypt("password")
-        ]);
-
-
-        Admin::create([
-            "name" => "Viewer",
-            "email" => "viewer@mail.com",
-            "password" => bcrypt("password")
+            'name' => 'Super Admin',
+            'email' => 'admin@mail.com',
+            'password' => bcrypt('password'),
         ]);
 
         Admin::create([
-            "name" => "Shahin",
-            "email" => "mdshahinmije96@gmail.com",
-            "password" => bcrypt("password")
+            'name' => 'Viewer',
+            'email' => 'viewer@mail.com',
+            'password' => bcrypt('password'),
+        ]);
+
+        Admin::create([
+            'name' => 'Shahin',
+            'email' => 'mdshahinmije96@gmail.com',
+            'password' => bcrypt('password'),
         ]);
 
         WebsiteInfo::create([]);
-            $this->call([
-                RoleSeeder::class,
-                PermissionSeeder::class,
-                RolePermissionSeeder::class,
-                CategorySeeder::class
-            ]);
-        }
+        $this->call([
+            RoleSeeder::class,
+            PermissionSeeder::class,
+            RolePermissionSeeder::class,
+            CategorySeeder::class,
+        ]);
+    }
 }

@@ -3,7 +3,7 @@
 namespace App\Helper\Trait;
 
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Route;
+
 trait RequestLoggerTrait
 {
     protected $requestId;
@@ -17,7 +17,7 @@ trait RequestLoggerTrait
     {
         $this->initializeRequestLogger();
 
-        Log::log($level, $this->requestId . " ".$message, $context);
+        Log::log($level, $this->requestId.' '.$message, $context);
     }
 
     public function info($message, $context = []): void
@@ -29,6 +29,7 @@ trait RequestLoggerTrait
     {
         $this->log('info', $message, $context);
     }
+
     public function debug($message, $context = []): void
     {
         $this->log('debug', $message, $context);

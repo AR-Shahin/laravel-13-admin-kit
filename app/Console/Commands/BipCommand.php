@@ -26,13 +26,13 @@ class BipCommand extends Command
      */
     public function handle()
     {
-       //  $this->info('Bip command executed successfully!');
+        //  $this->info('Bip command executed successfully!');
 
         // You can add more functionality here as needed
         // For example, you could
-      //  dd(3);
+        //  dd(3);
 
-        Log::info("Bip command executed successfully!");
+        Log::info('Bip command executed successfully!');
         $this->info('Bip command executed successfully!');
     }
 }

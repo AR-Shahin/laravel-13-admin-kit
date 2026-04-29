@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use Illuminate\Contracts\Mail\Mailable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Lang;
@@ -25,7 +26,7 @@ class AdminResetPasswordNotification extends Notification
     /**
      * The callback that should be used to build the mail message.
      *
-     * @var (\Closure(mixed, string): \Illuminate\Notifications\Messages\MailMessage|\Illuminate\Contracts\Mail\Mailable)|null
+     * @var (\Closure(mixed, string): MailMessage|Mailable)|null
      */
     public static $toMailCallback;
 
@@ -55,7 +56,7 @@ class AdminResetPasswordNotification extends Notification
      * Build the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
+     * @return MailMessage
      */
     public function toMail($notifiable)
     {
@@ -70,7 +71,7 @@ class AdminResetPasswordNotification extends Notification
      * Get the reset password notification mail message for the given URL.
      *
      * @param  string  $url
-     * @return \Illuminate\Notifications\Messages\MailMessage
+     * @return MailMessage
      */
     protected function buildMailMessage($url)
     {
@@ -114,7 +115,7 @@ class AdminResetPasswordNotification extends Notification
     /**
      * Set a callback that should be used when building the notification mail message.
      *
-     * @param  \Closure(mixed, string): (\Illuminate\Notifications\Messages\MailMessage|\Illuminate\Contracts\Mail\Mailable)  $callback
+     * @param  \Closure(mixed, string): (MailMessage|Mailable)  $callback
      * @return void
      */
     public static function toMailUsing($callback)

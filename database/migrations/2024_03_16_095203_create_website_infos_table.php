@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('website_infos', function (Blueprint $table) {
             $table->id();
-            $table->string("name")->nullable()->default("Admin Panel");
-            $table->string("logo")->nullable()->default("Admin Panel");
-            $table->string("email")->nullable()->default("admin@mail.com");
-            $table->string("phone")->nullable()->default("01754100439");
+            $table->string('name')->nullable()->default('Admin Panel');
+            $table->string('logo')->nullable()->default('Admin Panel');
+            $table->string('email')->nullable()->default('admin@mail.com');
+            $table->string('phone')->nullable()->default('01754100439');
             $table->timestamps();
         });
     }
