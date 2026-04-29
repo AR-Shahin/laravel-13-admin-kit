@@ -14,7 +14,7 @@ abstract class Controller
 
     function __construct()
     {
-        if(auth("admin")->user()){
+        if(auth("admin")->user() && method_exists(auth("admin")->user(), 'getAllPermissions')){
             $this->admin_permissions = auth("admin")->user()->getAllPermissions()->pluck("name")->toArray() ;
         }
     }

@@ -20,7 +20,7 @@ class PermissionController extends Controller
                 ->addIndexColumn()
                 ->addColumn("actions",function($row){
                     $deleteRoute = route('admin.permissions.delete', $row["id"]);
-                    return $this->generateEditButton($row) . $this->generateDeleteButton($row,$deleteRoute,"permission-delete");
+                    return $this->generatePermissionEditButton($row) . $this->generateDeleteButton($row,$deleteRoute,"permission-delete");
                 })
                 ->rawColumns(["actions"])
                 ->make(true);
@@ -62,7 +62,7 @@ class PermissionController extends Controller
 
         return redirect()->back();
     }
-    private function generateEditButton($row){
+    protected function generatePermissionEditButton($row){
         return '
         <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#rowId_'.$row['id'].'">
          <i class="fa fa-edit"></i>

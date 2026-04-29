@@ -5,26 +5,26 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
-        "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.9",
-        "opcodesio/log-viewer": "^3.10",
+        "php": "^8.3",
+        "laravel/framework": "^13.0",
+        "laravel/tinker": "^3.0",
+        "opcodesio/log-viewer": "^3.24",
         "predis/predis": "^2.3",
-        "spatie/laravel-backup": "^8.6",
-        "spatie/laravel-permission": "^6.4",
-        "yajra/laravel-datatables-oracle": "^11.0"
+        "spatie/laravel-backup": "^10.0",
+        "spatie/laravel-permission": "^7.0",
+        "yajra/laravel-datatables-oracle": "^13.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.12",
         "fakerphp/faker": "^1.23",
+        "fruitcake/laravel-debugbar": "^4.2",
         "laravel/breeze": "^2.0",
-        "laravel/pint": "^1.13",
-        "laravel/sail": "^1.26",
+        "laravel/pint": "^1.18",
+        "laravel/sail": "^1.40",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.0",
-        "pestphp/pest": "^2.0",
-        "pestphp/pest-plugin-laravel": "^2.0",
-        "spatie/laravel-ignition": "^2.4"
+        "nunomaduro/collision": "^8.8",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0",
+        "spatie/laravel-ignition": "^2.12"
     },
     "autoload": {
         "psr-4": {
