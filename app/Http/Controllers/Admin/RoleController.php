@@ -63,33 +63,26 @@ class RoleController extends Controller
         $permissions = Permission::whereGuardName('admin')->orderBy('name')->get();
         $alreadyGiven = $role->permissions()->pluck('id')->toArray();
 
-        $permissionArrays = [
-            'view' => [],
-            'create' => [],
-            'edit' => [],
-            'delete' => [],
-            'other' => [],
-        ];
+        $modules = [];
 
         foreach ($permissions as $item) {
-            $permissionType = 'other';
-            if (strpos($item->name, 'view') !== false) {
-                $permissionType = 'view';
-            } elseif (strpos($item->name, 'create') !== false) {
-                $permissionType = 'create';
-            } elseif (strpos($item->name, 'edit') !== false) {
-                $permissionType = 'edit';
-            } elseif (strpos($item->name, 'delete') !== false) {
-                $permissionType = 'delete';
+            $parts = explode('-', $item->name);
+            $moduleName = $parts[0] ?? 'other';
+            $action = $parts[1] ?? 'view';
+
+            if (!isset($modules[$moduleName])) {
+                $modules[$moduleName] = [];
             }
 
-            $permissionArrays[$permissionType][] = [
+            $modules[$moduleName][] = [
                 'id' => $item->id,
-                'name' => ucwords(str_replace('-', ' ', $item->name)),
+                'name' => $item->name,
+                'action' => $action,
+                'display_name' => ucwords(str_replace('-', ' ', $item->name)),
             ];
         }
 
-        return view('admin.role.assign-permission', compact('permissionArrays', 'role', 'alreadyGiven'));
+        return view('admin.role.assign-permission', compact('modules', 'role', 'alreadyGiven'));
     }
 
     public function assignPermissionStore(Request $request, Role $role)

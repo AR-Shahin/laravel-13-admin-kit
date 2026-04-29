@@ -125,38 +125,77 @@
                         <button class="btn btn-sm btn-success">Submit</button>
                     </div>
                 </form> --}}
-                <form action="{{ route("admin.roles.assign__permission", $role->id) }}" method="post">
-                    @csrf
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                        @foreach ($permissionArrays as $type => $permissions)
-                        <li class="nav-item ">
-                            <a class=" nav-link{{ $loop->first ? ' active ' : '' }}" id="pills-{{ $type }}-tab" data-toggle="pill" href="#pills-{{ $type }}" role="tab" aria-controls="pills-{{ $type }}" aria-selected="{{ $loop->first ? 'true' : 'false' }}">{{ ucfirst($type) }}</a>
-                        </li>
-                        @endforeach
-                    </ul>
-                    <hr class="p-0 my-1">
-                    <div class="tab-content" id="pills-tabContent">
-                        @foreach ($permissionArrays as $type => $permissions)
-                        <div class="tab-pane fade{{ $loop->first ? ' show active' : '' }}" id="pills-{{ $type }}" role="tabpanel" aria-labelledby="pills-{{ $type }}-tab">
-
-                            @if (count($permissions) > 0)
-                            <input type="checkbox" onclick="addCheckboxClick('{{ $type }}')" id="addCheckboxId_{{ $type }}"
-                            @if ( !array_diff(collect($permissions)->map(fn($i)=> $i["id"])->toArray(), $alreadyGiven))
-                            checked
-                            @endif
-                            > <label style="cursor: pointer" for="addCheckboxId_{{ $type }}">Choose All</label>
-                            <hr class="p-0 my-1">
-                            <div class="permissionDiv">
-                                @foreach ($permissions as $permission)
-                                <p class="m-0" style="cursor: pointer"><input type="checkbox" class="mx-1 addItems" value="{{ $permission['id'] }}" name="permissions[]" {{ in_array($permission['id'], $alreadyGiven) ? 'checked' : '' }} onclick='ars("{{ count($permissions) }}",this,"addCheckboxId_{{ $type }}")'>{{ $permission['name'] }}</p>
-                                @endforeach
+                <!-- Search and Bulk Actions -->
+                <div class="sticky-top bg-white pt-2 pb-3 mb-4 border-bottom" style="z-index: 100; top: 0;">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="input-group shadow-sm" style="border-radius: 25px; overflow: hidden;">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white border-right-0"><i class="fas fa-search text-muted"></i></span>
+                                </div>
+                                <input type="text" id="moduleSearch" class="form-control border-left-0" placeholder="Search modules (e.g. User, Role...)" style="height: 45px;">
                             </div>
-                            @endif
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="btn-group shadow-sm" role="group">
+                                <button type="button" class="btn btn-outline-secondary btn-sm global-select" data-action="view">View All</button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm global-select" data-action="create">Create All</button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm global-select" data-action="edit">Edit All</button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm global-select" data-action="delete">Delete All</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="{{ route("admin.roles.assign__permission", $role->id) }}" method="post" id="permissionForm">
+                    @csrf
+                    <div class="module-container">
+                        @foreach ($modules as $moduleName => $permissions)
+                        <div class="module-row border-bottom py-3 px-2 transition-all hover-bg-light" data-name="{{ strtolower($moduleName) }}">
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="custom-control custom-checkbox mr-3">
+                                            <input type="checkbox" class="custom-control-input select-all-module" id="all_{{ $moduleName }}" data-module="{{ $moduleName }}">
+                                            <label class="custom-control-label" for="all_{{ $moduleName }}"></label>
+                                        </div>
+                                        <h6 class="mb-0 font-weight-bold text-dark text-uppercase small" style="letter-spacing: 1px;">{{ $moduleName }}</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="d-flex flex-wrap">
+                                        @foreach ($permissions as $permission)
+                                        <div class="permission-chip mr-2 mb-1">
+                                            <input type="checkbox" class="d-none permission-input-{{ $moduleName }} action-{{ $permission['action'] }}" 
+                                                   id="p_{{ $permission['id'] }}" 
+                                                   name="permissions[]" 
+                                                   value="{{ $permission['id'] }}"
+                                                   {{ in_array($permission['id'], $alreadyGiven) ? 'checked' : '' }}
+                                                   data-module="{{ $moduleName }}"
+                                                   data-action="{{ $permission['action'] }}">
+                                            <label for="p_{{ $permission['id'] }}" class="chip-label px-3 py-1 border rounded-pill small font-weight-bold transition-all" style="cursor: pointer;">
+                                                {{ strtoupper($permission['action']) }}
+                                            </label>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         @endforeach
                     </div>
-                    <div class="my-2">
-                        <button class="btn btn-sm btn-success">Submit</button>
+
+                    <div class="sticky-footer bg-white border-top p-3 text-right mt-5 shadow-lg" style="position: sticky; bottom: 0; margin: 0 -15px; border-radius: 0 0 10px 10px; z-index: 101;">
+                        <div class="container-fluid d-flex justify-content-between align-items-center">
+                            <div class="text-left">
+                                <span class="badge badge-soft-primary p-2" style="font-size: 0.9rem;">
+                                    <i class="fas fa-check-circle mr-1"></i> <span id="totalSelectedCount">0</span> PERMISSIONS SELECTED
+                                </span>
+                            </div>
+                            <button class="btn btn-sync btn-lg shadow-lg px-5" style="border-radius: 5px; font-weight: 800; letter-spacing: 2px;">
+                                SYNC PERMISSIONS
+                            </button>
+                        </div>
                     </div>
                 </form>
 
@@ -168,23 +207,97 @@
 @stop
 
 
+@push("css")
+<style>
+    .module-row:last-child { border-bottom: none !important; }
+    .hover-bg-light:hover { background-color: #fcfcfc; }
+    .transition-all { transition: all 0.2s ease; }
+    
+    /* Chip Styling - Matching Sidebar Dark */
+    .chip-label { 
+        background: #fff; 
+        color: #495057; 
+        border-color: #dee2e6 !important;
+        user-select: none;
+    }
+    .permission-chip input:checked + .chip-label {
+        background: #343a40; /* AdminLTE Sidebar Dark */
+        color: #fff;
+        border-color: #343a40 !important;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .badge-soft-primary { background-color: #f4f6f9; color: #343a40; border: 1px solid #dee2e6; }
+    .sticky-top { backdrop-filter: blur(8px); background: rgba(255, 255, 255, 0.9) !important; }
+    
+    #moduleSearch:focus { box-shadow: none; border-color: #343a40; }
+
+    /* Sync Button - Matching Sidebar */
+    .btn-sync {
+        background: #343a40;
+        color: #fff;
+        border: none;
+        transition: all 0.3s;
+    }
+    .btn-sync:hover {
+        background: #23272b;
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+</style>
+@endpush
+
 @push("script")
     <script>
+    $(document).ready(function() {
+        updateTotalCount();
 
-    function addCheckboxClick(type) {
-    if (document.getElementById(`addCheckboxId_${type}`).checked) {
+        // Search Filter
+        $('#moduleSearch').on('keyup', function() {
+            const value = $(this).val().toLowerCase();
+            $('.module-row').filter(function() {
+                $(this).toggle($(this).data('name').indexOf(value) > -1);
+            });
+        });
 
-        $('#pills-' + type + ' .addItems:input:checkbox').each(function() { this.checked = true; });
-    } else {
-        $('#pills-' + type + ' .addItems:input:checkbox').each(function() { this.checked = false; });
-    }
+        // Module-specific Select All
+        $('.select-all-module').on('change', function() {
+            const moduleName = $(this).data('module');
+            $(`.permission-input-${moduleName}`).prop('checked', $(this).prop('checked')).trigger('change');
+        });
 
-}
+        // Global Action Select (View All, Create All, etc)
+        $('.global-select').on('click', function() {
+            const action = $(this).data('action');
+            // Target inputs where the parent module-row is visible (to respect search filter)
+            const visibleModules = $('.module-row:visible');
+            const targetInputs = visibleModules.find(`.action-${action}`);
+            
+            const allChecked = targetInputs.length > 0 && targetInputs.length === targetInputs.filter(':checked').length;
+            
+            targetInputs.prop('checked', !allChecked).trigger('change');
+            
+            // Visual feedback for the button
+            if (!allChecked) {
+                $(this).addClass('bg-dark text-white');
+            } else {
+                $(this).removeClass('bg-dark text-white');
+            }
+        });
 
-function ars(a, t, foo) {
-    var checkedCount = $(t).closest(".permissionDiv").find(".addItems:checked").length;
-    $("#" + foo).prop("checked", checkedCount >= a);
-}
+        // Sync Individual Checkboxes
+        $('input[name="permissions[]"]').on('change', function() {
+            updateTotalCount();
+            const moduleName = $(this).data('module');
+            const total = $(`.permission-input-${moduleName}`).length;
+            const checked = $(`.permission-input-${moduleName}:checked`).length;
+            $(`#all_${moduleName}`).prop('checked', total === checked);
+        });
 
+        function updateTotalCount() {
+            $('#totalSelectedCount').text($('input[name="permissions[]"]:checked').length);
+        }
+    });
     </script>
 @endpush
