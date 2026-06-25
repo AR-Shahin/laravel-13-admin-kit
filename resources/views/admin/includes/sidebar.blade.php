@@ -1,4 +1,4 @@
-<aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+<aside class="app-sidebar bg-dark shadow" data-bs-theme="dark">
     <!-- Brand Logo -->
     <div class="sidebar-brand">
     <a href="index3.html" class="brand-link">
@@ -10,7 +10,7 @@
     <!-- Sidebar -->
     <div class="sidebar-wrapper">
       <!-- Sidebar user panel -->
-      <div class="mt-3 pb-3 mb-3 d-flex border-bottom border-secondary px-3 align-items-center">
+      <div class="sidebar-user-panel mt-3 pb-3 mb-3 d-flex border-bottom border-secondary px-3 align-items-center">
         <div class="image">
           <img src="{{ asset("admin/dist/img/user2-160x160.jpg") }}" class="rounded-circle shadow-sm" style="width: 2.1rem;" alt="User Image">
         </div>
@@ -105,7 +105,7 @@
           <li class="nav-item">
             <form action="{{ route("admin.logout") }}" method="POST">
                 @csrf
-                <button class="nav-link btn btn-sm btn-success text-light">Logout</button>
+                <button class="nav-link btn btn-sm btn-success text-light text-start"><i class="fas fa-sign-out-alt nav-icon"></i> <p>Logout</p></button>
             </form>
 
           </li>
