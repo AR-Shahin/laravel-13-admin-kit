@@ -17,3 +17,8 @@ function initalizeDatatable(route,columns,table="data-table"){
         });
       });
 }
+
+$(function() {
+    // Move all modals to the body to prevent z-index and backdrop issues
+    $('.modal').appendTo('body');
+});

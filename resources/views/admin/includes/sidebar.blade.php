@@ -3,29 +3,19 @@
     <div class="sidebar-brand">
     <a href="index3.html" class="brand-link">
       <img src="{{ asset("admin/dist/img/AdminLTELogo.png") }}" alt="AdminLTE Logo" class="brand-image rounded-circle shadow" style="opacity: .8">
-      <span class="brand-text font-weight-light">Admin Panel</span>
+      <span class="brand-text fw-light">Admin Panel</span>
     </a>
     </div>
 
     <!-- Sidebar -->
     <div class="sidebar-wrapper">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <!-- Sidebar user panel -->
+      <div class="mt-3 pb-3 mb-3 d-flex border-bottom border-secondary px-3 align-items-center">
         <div class="image">
-          <img src="{{ asset("admin/dist/img/user2-160x160.jpg") }}" class="rounded-circle shadow-sm" alt="User Image">
+          <img src="{{ asset("admin/dist/img/user2-160x160.jpg") }}" class="rounded-circle shadow-sm" style="width: 2.1rem;" alt="User Image">
         </div>
-        <div class="info">
-          <a href="#" class="d-block">{{ auth()->user()->name }}</a>
-        </div>
-      </div>
-
-      <!-- SidebarSearch Form -->
-      <div class="d-flex">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
+        <div class="info ms-3">
+          <a href="#" class="d-block text-decoration-none text-light">{{ auth()->user()->name }}</a>
         </div>
       </div>
 

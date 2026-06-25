@@ -20,20 +20,7 @@
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
           <i class="fas fa-search"></i>
         </a>
-        <div class="navbar-search-block">
-          <form class="d-flex">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-            </div>
-          </form>
-        </div>
-      </li>
+        </li>
 
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
@@ -44,9 +31,9 @@
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
-            <div class="media">
-              <img src="{{ asset("admin/dist/img/user1-128x128.jpg") }}" alt="User Avatar" class="img-size-50 me-3 rounded-circle">
-              <div class="media-body">
+            <div class="d-flex">
+              <img src="{{ asset("admin/dist/img/user1-128x128.jpg") }}" alt="User Avatar" class="shadow-sm me-3 rounded-circle" style="width: 50px;">
+              <div class="flex-grow-1">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
                   <span class="float-end text-sm text-danger"><i class="fas fa-star"></i></span>
@@ -60,9 +47,9 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
-            <div class="media">
-              <img src="{{ asset("admin/dist/img/user8-128x128.jpg") }}" alt="User Avatar" class="img-size-50 rounded-circle me-3">
-              <div class="media-body">
+            <div class="d-flex">
+              <img src="{{ asset("admin/dist/img/user8-128x128.jpg") }}" alt="User Avatar" class="shadow-sm rounded-circle me-3" style="width: 50px;">
+              <div class="flex-grow-1">
                 <h3 class="dropdown-item-title">
                   John Pierce
                   <span class="float-end text-sm text-muted"><i class="fas fa-star"></i></span>
@@ -76,9 +63,9 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
-            <div class="media">
-              <img src="{{ asset("admin/dist/img/user3-128x128.jpg") }}" alt="User Avatar" class="img-size-50 rounded-circle me-3">
-              <div class="media-body">
+            <div class="d-flex">
+              <img src="{{ asset("admin/dist/img/user3-128x128.jpg") }}" alt="User Avatar" class="shadow-sm rounded-circle me-3" style="width: 50px;">
+              <div class="flex-grow-1">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
                   <span class="float-end text-sm text-warning"><i class="fas fa-star"></i></span>
