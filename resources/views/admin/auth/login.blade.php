@@ -1,7 +1,6 @@
 @extends("admin.layouts.app")
 @section("title", "Login")
 @section("app_content")
-<div class="login-page">
     <div class="login-box">
        <div class="login-logo">
           <a href="../../index2.html">{{$website->name}}</a>
@@ -54,10 +53,10 @@
              {{-- <div class="social-auth-links text-center mb-3">
                 <p>- OR -</p>
                 <a href="#" class="btn btn-block btn-primary">
-                <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                <i class="fab fa-facebook me-2"></i> Sign in using Facebook
                 </a>
                 <a href="#" class="btn btn-block btn-danger">
-                <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+                <i class="fab fa-google-plus me-2"></i> Sign in using Google+
                 </a>
              </div> --}}
              <!-- /.social-auth-links -->
@@ -71,5 +70,4 @@
           <!-- /.login-card-body -->
        </div>
     </div>
-</div>
 @stop

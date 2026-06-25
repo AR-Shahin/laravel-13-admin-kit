@@ -6,11 +6,8 @@
       <title>Admin | @yield("title")</title>
       @include("admin.includes.css")
    </head>
-   <body class="hold-transition sidebar-mini">
+   <body class="login-page bg-body-secondary">
     @yield("app_content")
-      <!-- /.content-wrapper -->
-      </div>
-      <!-- ./wrapper -->
       <!-- REQUIRED SCRIPTS -->
       @include("admin.includes.script")
    </body>

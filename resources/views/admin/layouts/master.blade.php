@@ -12,8 +12,8 @@
 @php
     // $permissions = auth("admin")->user()->getAllPermissions()->pluck("name")->toArray();
 @endphp
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+<div class="app-wrapper">
 
   <!-- Navbar -->
 @include("admin.includes.navbar")
@@ -23,17 +23,17 @@
 
 @include("admin.includes.sidebar")
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <main class="app-main">
 
     <!-- Main content -->
-    <div class="content pt-3">
+    <div class="app-content pt-3">
       <div class="container-fluid">
         @yield("master_content")
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
-  </div>
+  </main>
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
@@ -43,7 +43,7 @@
   <!-- Main Footer -->
   @include("admin.includes.footer")
 </div>
-<!-- ./wrapper -->
+<!-- ./app-wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
 

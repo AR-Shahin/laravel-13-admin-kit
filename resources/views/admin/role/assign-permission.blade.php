@@ -24,22 +24,22 @@
                     @csrf
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item">
-                          <a class="nav-link active" id="pills-view-tab" data-toggle="pill" href="#pills-view" role="tab" aria-controls="pills-view" aria-selected="true">View</a>
+                          <a class="nav-link active" id="pills-view-tab" data-bs-toggle="pill" href="#pills-view" role="tab" aria-controls="pills-view" aria-selected="true">View</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" id="pills-create-tab" data-toggle="pill" href="#pills-create" role="tab" aria-controls="pills-create" aria-selected="false">Create</a>
+                          <a class="nav-link" id="pills-create-tab" data-bs-toggle="pill" href="#pills-create" role="tab" aria-controls="pills-create" aria-selected="false">Create</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" id="pills-edit-tab" data-toggle="pill" href="#pills-edit" role="tab" aria-controls="pills-edit" aria-selected="false">Edit</a>
+                          <a class="nav-link" id="pills-edit-tab" data-bs-toggle="pill" href="#pills-edit" role="tab" aria-controls="pills-edit" aria-selected="false">Edit</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-update-tab" data-toggle="pill" href="#pills-update" role="tab" aria-controls="pills-update" aria-selected="false">Update</a>
+                            <a class="nav-link" id="pills-update-tab" data-bs-toggle="pill" href="#pills-update" role="tab" aria-controls="pills-update" aria-selected="false">Update</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" id="pills-delete-tab" data-toggle="pill" href="#pills-delete" role="tab" aria-controls="pills-delete" aria-selected="false">Delete</a>
+                            <a class="nav-link" id="pills-delete-tab" data-bs-toggle="pill" href="#pills-delete" role="tab" aria-controls="pills-delete" aria-selected="false">Delete</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" id="pills-other-tab" data-toggle="pill" href="#pills-other" role="tab" aria-controls="pills-other" aria-selected="false">Other</a>
+                            <a class="nav-link" id="pills-other-tab" data-bs-toggle="pill" href="#pills-other" role="tab" aria-controls="pills-other" aria-selected="false">Other</a>
                           </li>
                       </ul>
                       <hr>
@@ -136,7 +136,7 @@
                                 <input type="text" id="moduleSearch" class="form-control border-left-0" placeholder="Search modules (e.g. User, Role...)" style="height: 45px;">
                             </div>
                         </div>
-                        <div class="col-md-6 text-right">
+                        <div class="col-md-6 text-end">
                             <div class="btn-group shadow-sm" role="group">
                                 <button type="button" class="btn btn-outline-secondary btn-sm global-select" data-action="view">View All</button>
                                 <button type="button" class="btn btn-outline-secondary btn-sm global-select" data-action="create">Create All</button>
@@ -155,7 +155,7 @@
                             <div class="row align-items-center">
                                 <div class="col-md-3">
                                     <div class="d-flex align-items-center">
-                                        <div class="custom-control custom-checkbox mr-3">
+                                        <div class="custom-control custom-checkbox me-3">
                                             <input type="checkbox" class="custom-control-input select-all-module" id="all_{{ $moduleName }}" data-module="{{ $moduleName }}">
                                             <label class="custom-control-label" for="all_{{ $moduleName }}"></label>
                                         </div>
@@ -165,7 +165,7 @@
                                 <div class="col-md-9">
                                     <div class="d-flex flex-wrap">
                                         @foreach ($permissions as $permission)
-                                        <div class="permission-chip mr-2 mb-1">
+                                        <div class="permission-chip me-2 mb-1">
                                             <input type="checkbox" class="d-none permission-input-{{ $moduleName }} action-{{ $permission['action'] }}" 
                                                    id="p_{{ $permission['id'] }}" 
                                                    name="permissions[]" 
@@ -185,11 +185,11 @@
                         @endforeach
                     </div>
 
-                    <div class="sticky-footer bg-white border-top p-3 text-right mt-5 shadow-lg" style="position: sticky; bottom: 0; margin: 0 -15px; border-radius: 0 0 10px 10px; z-index: 101;">
+                    <div class="sticky-footer bg-white border-top p-3 text-end mt-5 shadow-lg" style="position: sticky; bottom: 0; margin: 0 -15px; border-radius: 0 0 10px 10px; z-index: 101;">
                         <div class="container-fluid d-flex justify-content-between align-items-center">
-                            <div class="text-left">
+                            <div class="text-start">
                                 <span class="badge badge-soft-primary p-2" style="font-size: 0.9rem;">
-                                    <i class="fas fa-check-circle mr-1"></i> <span id="totalSelectedCount">0</span> PERMISSIONS SELECTED
+                                    <i class="fas fa-check-circle me-1"></i> <span id="totalSelectedCount">0</span> PERMISSIONS SELECTED
                                 </span>
                             </div>
                             <button class="btn btn-sync btn-lg shadow-lg px-5" style="border-radius: 5px; font-weight: 800; letter-spacing: 2px;">
