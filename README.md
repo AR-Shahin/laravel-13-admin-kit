@@ -64,6 +64,20 @@ Common routes include:
 - `/admin/admins`
 - `/admin/categories`
 
+## Demo Screenshots
+
+### Dashboard
+
+![Admin Dashboard](docs/screenshots/dashboard.svg)
+
+### Admin Management
+
+![Admin List](docs/screenshots/admin-list.svg)
+
+### Category Management
+
+![Category List](docs/screenshots/categories.svg)
+
 ## Notes
 
 - Admin routes are defined in `routes/admin/web.php`
