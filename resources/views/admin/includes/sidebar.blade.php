@@ -31,7 +31,7 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+        <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
 
           <li class="nav-item">
             <a href="{{ route('admin.dashboard') }}" class="nav-link">
@@ -68,7 +68,7 @@
             </a>
           </li>
           @if (in_array("role-create",$permissions))
-          <li class="nav-item menu--open">
+          <li class="nav-item menu-open">
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-solid fa-user-lock"></i>
               <p>
@@ -93,7 +93,7 @@
           </li>
           @endif
           @if (in_array("admin-create",$permissions))
-          <li class="nav-item menu--open">
+          <li class="nav-item menu-open">
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-users"></i>
               <p>
