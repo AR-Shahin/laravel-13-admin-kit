@@ -13,31 +13,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/adminlte4@4.0.0-rc.7.20260519/dist/css/adminlte.min.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 <style>
     /* Hide user panel info when sidebar is collapsed */
-    body.sidebar-collapse .sidebar-user-panel .info {
-        display: none !important;
-    }
     body.sidebar-collapse .sidebar-user-panel {
-        padding-left: 0.8rem !important;
-        justify-content: center;
-    }
-    /* Fix layout-fixed white space bug on collapse */
-    @media (min-width: 992px) {
-        body.sidebar-collapse.layout-fixed .app-main,
-        body.sidebar-collapse.layout-fixed .app-header,
-        body.sidebar-collapse.layout-fixed .app-footer {
-            margin-left: 0 !important;
-            transition: margin-left 0.3s ease-in-out;
-        }
-        body.sidebar-collapse.sidebar-mini.layout-fixed .app-main,
-        body.sidebar-collapse.sidebar-mini.layout-fixed .app-header,
-        body.sidebar-collapse.sidebar-mini.layout-fixed .app-footer {
-            margin-left: 4.6rem !important;
-        }
-        body.layout-fixed .app-main,
-        body.layout-fixed .app-header,
-        body.layout-fixed .app-footer {
-            transition: margin-left 0.3s ease-in-out;
-        }
+        display: none !important;
     }
 </style>
 @stack("css")

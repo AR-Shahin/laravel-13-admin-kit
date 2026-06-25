@@ -105,7 +105,7 @@
           <li class="nav-item">
             <form action="{{ route("admin.logout") }}" method="POST">
                 @csrf
-                <button class="nav-link btn btn-sm btn-success text-light text-start"><i class="fas fa-sign-out-alt nav-icon"></i> <p>Logout</p></button>
+                <button type="submit" class="nav-link text-light text-start bg-transparent border-0 w-100"><i class="fas fa-sign-out-alt nav-icon text-danger"></i> <p>Logout</p></button>
             </form>
 
           </li>
