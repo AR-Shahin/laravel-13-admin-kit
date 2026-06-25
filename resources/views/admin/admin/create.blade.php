@@ -37,7 +37,7 @@
                             <x-form.input label="Re Password" type="password" name="password_confirmation" placeholder="Re password" id="re_password"/>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="mb-3">
                                 <label for=""><b>Role : </b></label>
                                 <select name="role_id" id="" class="form-control select2">
                                     <option value="">Select A Role</option>

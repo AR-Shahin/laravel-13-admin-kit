@@ -130,9 +130,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="input-group shadow-sm" style="border-radius: 25px; overflow: hidden;">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-white border-right-0"><i class="fas fa-search text-muted"></i></span>
-                                </div>
+                                <span class="input-group-text bg-white border-right-0"><i class="fas fa-search text-muted"></i></span>
                                 <input type="text" id="moduleSearch" class="form-control border-left-0" placeholder="Search modules (e.g. User, Role...)" style="height: 45px;">
                             </div>
                         </div>
@@ -155,9 +153,9 @@
                             <div class="row align-items-center">
                                 <div class="col-md-3">
                                     <div class="d-flex align-items-center">
-                                        <div class="custom-control custom-checkbox me-3">
-                                            <input type="checkbox" class="custom-control-input select-all-module" id="all_{{ $moduleName }}" data-module="{{ $moduleName }}">
-                                            <label class="custom-control-label" for="all_{{ $moduleName }}"></label>
+                                        <div class="form-check me-3">
+                                            <input type="checkbox" class="form-check-input select-all-module" id="all_{{ $moduleName }}" data-module="{{ $moduleName }}">
+                                            <label class="form-check-label" for="all_{{ $moduleName }}"></label>
                                         </div>
                                         <h6 class="mb-0 font-weight-bold text-dark text-uppercase small" style="letter-spacing: 1px;">{{ $moduleName }}</h6>
                                     </div>

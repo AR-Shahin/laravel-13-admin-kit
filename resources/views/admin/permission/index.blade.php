@@ -48,7 +48,7 @@
 
 
                     <x-form.input label="Name" type="text" name="name" placeholder="Enter permission name" id="name"/>
-                    <button class="btn btn-sm btn-success btn-block">Submit</button>
+                    <button class="btn btn-sm btn-success w-100">Submit</button>
                 </form>
             </div>
             @endif

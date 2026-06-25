@@ -21,17 +21,15 @@
           <i class="fas fa-search"></i>
         </a>
         <div class="navbar-search-block">
-          <form class="form-inline">
+          <form class="d-flex">
             <div class="input-group input-group-sm">
               <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
+              <button class="btn btn-navbar" type="submit">
                   <i class="fas fa-search"></i>
                 </button>
                 <button class="btn btn-navbar" type="button" data-widget="navbar-search">
                   <i class="fas fa-times"></i>
                 </button>
-              </div>
             </div>
           </form>
         </div>
@@ -41,13 +39,13 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-bs-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
+          <span class="badge text-bg-danger navbar-badge">3</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{{ asset("admin/dist/img/user1-128x128.jpg") }}" alt="User Avatar" class="img-size-50 me-3 img-circle">
+              <img src="{{ asset("admin/dist/img/user1-128x128.jpg") }}" alt="User Avatar" class="img-size-50 me-3 rounded-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -63,7 +61,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{{ asset("admin/dist/img/user8-128x128.jpg") }}" alt="User Avatar" class="img-size-50 img-circle me-3">
+              <img src="{{ asset("admin/dist/img/user8-128x128.jpg") }}" alt="User Avatar" class="img-size-50 rounded-circle me-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -79,7 +77,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{{ asset("admin/dist/img/user3-128x128.jpg") }}" alt="User Avatar" class="img-size-50 img-circle me-3">
+              <img src="{{ asset("admin/dist/img/user3-128x128.jpg") }}" alt="User Avatar" class="img-size-50 rounded-circle me-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -99,7 +97,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-bs-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <span class="badge text-bg-warning navbar-badge">15</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
           <span class="dropdown-header">15 Notifications</span>

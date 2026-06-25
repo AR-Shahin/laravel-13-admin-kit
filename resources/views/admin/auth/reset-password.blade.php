@@ -23,23 +23,23 @@
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
         <!-- Email Address -->
-        <div class="form-group">
+        <div class="mb-3">
             <label for=""><b>Email</b></label>
             <input type="text" name="email" value="{{ old('email', $request->email) }}" class="form-control" readonly>
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <label for=""><b>Password</b></label>
             <input type="password" name="password" class="form-control" >
             @error("password")
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
-        <div class="form-group">
+        <div class="mb-3">
             <label for=""><b>Re Password</b></label>
             <input type="password" name="password_confirmation" class="form-control" >
         </div>
-        <div class="form-group">
+        <div class="mb-3">
             <x-form.submit/>
         </div>
     </form>
