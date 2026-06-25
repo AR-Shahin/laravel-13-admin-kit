@@ -15,12 +15,7 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ms-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        </li>
+      
 
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
@@ -113,7 +108,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+        <a class="nav-link" data-lte-toggle="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
       </li>
