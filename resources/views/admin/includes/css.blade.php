@@ -123,6 +123,11 @@
         transition: all 0.3s ease;
     }
 
+    /* Sidebar Custom Background */
+    .app-sidebar {
+        background-color: #353b48 !important;
+    }
+
     /* Simple Eye-Catching Sidebar Hover & Active Effect */
     .app-sidebar .nav-link {
         transition: all 0.2s ease-in-out;
