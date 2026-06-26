@@ -123,14 +123,15 @@
         transition: all 0.3s ease;
     }
 
-    /* Simple Eye-Catching Sidebar Hover Effect */
+    /* Simple Eye-Catching Sidebar Hover & Active Effect */
     .app-sidebar .nav-link {
         transition: all 0.2s ease-in-out;
         border-radius: 0.375rem;
         margin-bottom: 0.2rem;
     }
 
-    .app-sidebar .nav-link:hover {
+    .app-sidebar .nav-link:hover,
+    .app-sidebar .nav-link.active {
         color: #ffffff !important;
         background-color: rgba(255, 255, 255, 0.08);
         box-shadow: inset 4px 0 0 var(--bs-primary);
