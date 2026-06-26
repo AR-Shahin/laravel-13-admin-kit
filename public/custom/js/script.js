@@ -19,6 +19,18 @@ function initalizeDatatable(route,columns,table="data-table"){
 }
 
 $(function() {
-    // Move all modals to the body to prevent z-index and backdrop issues
-    $('.modal').appendTo('body');
+    // Move all statically rendered modals to the body
+    $('.modal').addClass('static-modal').appendTo('body');
+});
+
+// Handle dynamically generated modals from DataTables
+$(document).on('preDraw.dt', function() {
+    // Before DataTables redraws, clean up any previously moved dynamic modals 
+    // to prevent duplicate IDs which cause the modal to "blink" or fail.
+    $('.dt-moved-modal').remove();
+});
+
+$(document).on('draw.dt', function () {
+    // After DataTables draws, find new modals inside the table and move them to the body
+    $('.data-table .modal').addClass('dt-moved-modal').appendTo('body');
 });

@@ -123,8 +123,36 @@
         transition: all 0.3s ease;
     }
 
-    .nav-link:hover {
-        color: var(--bs-primary) !important;
+    /* Enhanced Sidebar Hover Effect */
+    .app-sidebar .nav-link {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        border-radius: 0.375rem;
+        margin-bottom: 0.2rem;
+        z-index: 0; /* Creates stacking context for pseudo-element */
+    }
+
+    .app-sidebar .nav-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.1) 100%);
+        transition: left 0.3s ease;
+        z-index: -1; /* Stays strictly behind text and icons */
+        border-radius: 0.375rem;
+    }
+
+    .app-sidebar .nav-link:hover::before {
+        left: 0;
+    }
+
+    .app-sidebar .nav-link:hover {
+        transform: translateX(5px);
+        color: #ffffff !important;
+        background-color: rgba(255, 255, 255, 0.05);
     }
 
     /* Smooth scrolling */
