@@ -58,7 +58,7 @@
             </a>
           </li>
           @if (in_array("role-create",$permissions))
-          <li class="nav-item menu-open">
+          <li class="nav-item">
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-solid fa-user-lock"></i>
               <p>
@@ -83,7 +83,7 @@
           </li>
           @endif
           @if (in_array("admin-create",$permissions))
-          <li class="nav-item menu-open">
+          <li class="nav-item">
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-users"></i>
               <p>
