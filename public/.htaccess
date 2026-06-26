@@ -42,6 +42,6 @@
 </IfModule>
 
 # Prevent PHP execution in storage/uploads (place this .htaccess inside storage/uploads)
-<FilesMatch "\.(php|phtml|php5)$">
+<FilesMatch "\.(php|phtml)$">
     Deny from all
 </FilesMatch>
