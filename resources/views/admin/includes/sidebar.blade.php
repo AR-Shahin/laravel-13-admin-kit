@@ -1,7 +1,7 @@
 <aside class="app-sidebar bg-dark shadow" data-bs-theme="dark">
     <!-- Brand Logo -->
     <div class="sidebar-brand">
-    <a href="index3.html" class="brand-link">
+    <a href="{{ route('admin.dashboard') }}" class="brand-link">
       <img src="{{ asset("admin/dist/img/AdminLTELogo.png") }}" alt="AdminLTE Logo" class="brand-image rounded-circle shadow" style="opacity: .8">
       <span class="brand-text fw-light">Admin Panel</span>
     </a>
