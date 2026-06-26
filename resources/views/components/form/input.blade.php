@@ -12,11 +12,3 @@
     @enderror
 </div>
 
-
- {{-- <div class="mb-3">
-                        <label for=""><b>Name</b></label>
-                        <input type="text" class="form-control" name="name" value="{{ old('name') }}">
-                        @error("name")
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div> --}}

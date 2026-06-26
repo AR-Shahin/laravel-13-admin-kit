@@ -30,12 +30,7 @@
                         <div class="col-md-6">
                             <x-form.input label="Email" type="email" name="email" placeholder="Enter Email" id="email" :value="$admin->email"/>
                         </div>
-                        {{-- <div class="col-md-6">
-                            <x-form.input label="Password" type="password" name="password" placeholder="Enter password" id="password"/>
-                        </div>
-                        <div class="col-md-6">
-                            <x-form.input label="Re Password" type="password" name="password_confirmation" placeholder="Re password" id="re_password"/>
-                        </div> --}}
+
 
                         <div class="col-md-6">
                             <div class="mb-3">

@@ -26,18 +26,7 @@
                         </thead>
                         <tbody></tbody>
 
-                        {{-- @foreach ($permissions as $permission)
-                            <tr>
-                                <td>{{ $loop->index + 1 }}</td>
-                                <td>{{ $permission->name }}</td>
-                                <td>
-                                    <a href="" class="btn btn-sm btn-success mx-1"><i class="fa fa-eye"></i></a>
-                                    <a href="" class="btn btn-sm btn-info mx-1"><i class="fa fa-edit"></i></a>
-                                    <a href="" class="btn btn-sm btn-danger mx-1"><i class="fa fa-trash"></i></a>
-                                    <a href="" class="btn btn-sm btn-primary mx-1"><i class="fas fa-tasks"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach --}}
+
                     </table>
                 </div>
             </div>

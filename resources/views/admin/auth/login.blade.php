@@ -46,22 +46,12 @@
                    <!-- /.col -->
                 </div>
              </form>
-             {{-- <div class="social-auth-links text-center mb-3">
-                <p>- OR -</p>
-                <a href="#" class="btn w-100 btn-primary">
-                <i class="fab fa-facebook me-2"></i> Sign in using Facebook
-                </a>
-                <a href="#" class="btn w-100 btn-danger">
-                <i class="fab fa-google-plus me-2"></i> Sign in using Google+
-                </a>
-             </div> --}}
+
              <!-- /.social-auth-links -->
              <p class="mb-1">
                 <a href="{{ route("admin.password.request") }}">I forgot my password</a>
              </p>
-             {{-- <p class="mb-0">
-                <a href="register.html" class="text-center">Register a new membership</a>
-             </p> --}}
+
           </div>
           <!-- /.login-card-body -->
        </div>

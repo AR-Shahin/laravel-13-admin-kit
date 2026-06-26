@@ -8,7 +8,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-12">
-                {{-- {{ dd($permissions) }} --}}
+
                 <div class="d-flex justify-content-between">
                     <div>
                         <h3>Assign Permisson to <b><small class="text-info">{{ $role->name }}</small></b></h3>
@@ -20,111 +20,7 @@
                 <hr>
 
 
-                 {{-- <form action="{{ route("admin.roles.assign__permission",$role->id) }}" method="post">
-                    @csrf
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item">
-                          <a class="nav-link active" id="pills-view-tab" data-bs-toggle="pill" href="#pills-view" role="tab" aria-controls="pills-view" aria-selected="true">View</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="pills-create-tab" data-bs-toggle="pill" href="#pills-create" role="tab" aria-controls="pills-create" aria-selected="false">Create</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="pills-edit-tab" data-bs-toggle="pill" href="#pills-edit" role="tab" aria-controls="pills-edit" aria-selected="false">Edit</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-update-tab" data-bs-toggle="pill" href="#pills-update" role="tab" aria-controls="pills-update" aria-selected="false">Update</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="pills-delete-tab" data-bs-toggle="pill" href="#pills-delete" role="tab" aria-controls="pills-delete" aria-selected="false">Delete</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="pills-other-tab" data-bs-toggle="pill" href="#pills-other" role="tab" aria-controls="pills-other" aria-selected="false">Other</a>
-                          </li>
-                      </ul>
-                      <hr>
-                      <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-view" role="tabpanel" aria-labelledby="pills-view-tab">
-                            <input type="checkbox" onclick="addCheckboxClick"> Choose All
-                                @foreach ($permissionArrays["view"] as $permission)
-                                <p class="m-0"><input type="checkbox" class="mx-1"
-                                    value="{{ $permission["id"] }}"
-                                    name="permissions[]"
-                                    @if (in_array($permission["id"],$alreadyGiven))
-                                        checked
-                                    @endif
-                                    >{{ $permission["name"] }}</p>
-                            @endforeach
-                        </div>
-                        <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
-                            <input type="checkbox" onclick="addCheckboxClick"> Choose All
-                            @foreach ($permissionArrays["create"] as $permission)
-                            <p class="m-0"><input type="checkbox" class="mx-1"
-                                value="{{ $permission["id"] }}"
-                                name="permissions[]"
-                                @if (in_array($permission["id"],$alreadyGiven))
-                                    checked
-                                @endif
-                                >{{ $permission["name"] }}</p>
-                        @endforeach
-                        </div>
-                        <div class="tab-pane fade" id="pills-edit" role="tabpanel" aria-labelledby="pills-edit-tab">
-                            <input type="checkbox" onclick="addCheckboxClick"> Choose All
 
-                            @foreach ($permissionArrays["edit"] as $permission)
-                            <p class="m-0"><input type="checkbox" class="mx-1"
-                                value="{{ $permission["id"] }}"
-                                name="permissions[]"
-                                @if (in_array($permission["id"],$alreadyGiven))
-                                    checked
-                                @endif
-                                >{{ $permission["name"] }}</p>
-                        @endforeach
-                        </div>
-                        <div class="tab-pane fade" id="pills-update" role="tabpanel" aria-labelledby="pills-update-tab">
-                            <input type="checkbox" onclick="addCheckboxClick"> Choose All
-
-                            @foreach ($permissionArrays["update"] as $permission)
-                            <p class="m-0"><input type="checkbox" class="mx-1"
-                                value="{{ $permission["id"] }}"
-                                name="permissions[]"
-                                @if (in_array($permission["id"],$alreadyGiven))
-                                    checked
-                                @endif
-                                >{{ $permission["name"] }}</p>
-                        @endforeach
-                        </div>
-                        <div class="tab-pane fade" id="pills-delete" role="tabpanel" aria-labelledby="pills-delete-tab">
-                            <input type="checkbox" onclick="addCheckboxClick"> Choose All
-
-                            @foreach ($permissionArrays["delete"] as $permission)
-                            <p class="m-0"><input type="checkbox" class="mx-1"
-                                value="{{ $permission["id"] }}"
-                                name="permissions[]"
-                                @if (in_array($permission["id"],$alreadyGiven))
-                                    checked
-                                @endif
-                                >{{ $permission["name"] }}</p>
-                        @endforeach
-                        </div>
-                        <div class="tab-pane fade" id="pills-other" role="tabpanel" aria-labelledby="pills-other-tab">
-                            <input type="checkbox" onclick="addCheckboxClick"> Choose All
-
-                            @foreach ($permissionArrays["other"] as $permission)
-                            <p class="m-0"><input type="checkbox" class="mx-1"
-                                value="{{ $permission["id"] }}"
-                                name="permissions[]"
-                                @if (in_array($permission["id"],$alreadyGiven))
-                                    checked
-                                @endif
-                                >{{ $permission["name"] }}</p>
-                        @endforeach
-                        </div>
-                      </div>
-                    <div class="my-2">
-                        <button class="btn btn-sm btn-success">Submit</button>
-                    </div>
-                </form> --}}
                 <!-- Search and Bulk Actions -->
                 <div class="sticky-top bg-white pt-2 pb-3 mb-4 border-bottom" style="z-index: 100; top: 0;">
                     <div class="row align-items-center">

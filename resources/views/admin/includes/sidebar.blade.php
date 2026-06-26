@@ -32,9 +32,7 @@
             </a>
           </li>
 
-          {{-- @php
-              dd($permissions);
-          @endphp --}}
+
           @if (in_array("simple-link",$permissions))
           <li class="nav-item">
             <a href="#" class="nav-link">
