@@ -107,7 +107,7 @@
         </div>
         
         <div class="col-12 text-end mb-5">
-            <button type="submit" class="btn btn-lg btn-success px-5"><i class="fas fa-save me-2"></i> Save Settings</button>
+            <button type="submit" class="btn btn-sm btn-success px-5"><i class="fas fa-save me-2"></i> Save Settings</button>
         </div>
     </div>
 </form>
