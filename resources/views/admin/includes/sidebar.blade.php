@@ -50,8 +50,7 @@
             <a href="{{ url('log-viewer') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Log View
-                <span class="badge text-bg-danger float-end">New</span>
+                Log View              
               </p>
             </a>
           </li>
@@ -100,6 +99,14 @@
             </ul>
           </li>
           @endif
+          
+          <li class="nav-item">
+            <a href="{{ route('admin.settings.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-cogs"></i>
+              <p>Settings</p>
+            </a>
+          </li>
+
           <li class="nav-item">
             <form action="{{ route("admin.logout") }}" method="POST">
                 @csrf
