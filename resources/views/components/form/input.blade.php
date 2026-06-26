@@ -1,6 +1,6 @@
 @props(["label", "type", "name", "id" => null, "placeholder","value" => null])
 
-<div class="form-group">
+<div class="mb-3">
     <label for="{{ $id }}"><b>{{ $label }}</b> : </label>
     <input type="{{ $type }}" class="form-control
     @error($name)
@@ -13,7 +13,7 @@
 </div>
 
 
- {{-- <div class="form-group">
+ {{-- <div class="mb-3">
                         <label for=""><b>Name</b></label>
                         <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         @error("name")

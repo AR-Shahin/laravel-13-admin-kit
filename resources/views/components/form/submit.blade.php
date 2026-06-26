@@ -1,5 +1,5 @@
 @props(["text" => "Submit" ,"is_block" => null])
-<div class="form-group">
+<div class="mb-3">
     <button type="submit" class="btn btn-sm btn-success
     @if($is_block)
         w-100

@@ -1,6 +1,6 @@
 @props(["label", "name", "id" => null, "placeholder","value" => null, "col" => 30, "rows" => 2,"summernote" => false])
 
-<div class="form-group">
+<div class="mb-3">
     <label for="{{ $id }}"><b>{{ $label }}</b> : </label>
     <textarea class="form-control
     @error($name)

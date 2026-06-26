@@ -1,6 +1,6 @@
 @props(["label","name", "id" => null,"items","key" => null, "is_multiple" => false,"multi_placeholder" => ''])
 
-<div class="form-group">
+<div class="mb-3">
     <label for="{{ $id }}"><b>{{ $label }} : </b></label>
 
     <select name="{{ $name }}" id="{{ $id }}" class="form-control select2   @error($name)

@@ -20,7 +20,6 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-
 @include("admin.includes.sidebar")
   <!-- Content Wrapper. Contains page content -->
   <main class="app-main">
@@ -37,7 +36,7 @@
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
-@include("admin.includes.rightbar")
+{{-- @include("admin.includes.rightbar") --}}
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->

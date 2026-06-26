@@ -6,7 +6,7 @@
         <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="{{ route('admin.dashboard') }}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -15,7 +15,7 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ms-auto">
-      
+
 
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
@@ -108,7 +108,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-lte-toggle="control-sidebar" data-slide="true" href="#" role="button">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
       </li>
