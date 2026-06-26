@@ -37,7 +37,7 @@
         # Extra headers added
         Header set X-XSS-Protection "1; mode=block"
         Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-        Header set Content-Security-Policy "default-src 'self'; script-src 'self'; object-src 'none';"
+        Header set Content-Security-Policy "default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; font-src 'self' data: https:; object-src 'none';"
     </IfModule>
 </IfModule>
 
